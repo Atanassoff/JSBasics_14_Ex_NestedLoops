@@ -1,0 +1,33 @@
+function demo(input){
+    let numUnsat = Number(input[0]);
+    let exam = "";
+    let lastExam = "";
+    let numExam = 0;
+    let grade = 0;
+    let sumGrade = 0;
+    let unsat = 0;
+    let unsatis = false;
+    let i = 1
+    while((exam = input[i]) != "Enough"){
+        i++;
+        grade = Number(input[i]);
+        sumGrade += grade;
+        numExam++;
+        if(grade <= 4){
+            unsat++;
+            if(numUnsat == unsat){
+                console.log(`You need a break, ${numUnsat} poor grades.`);
+                unsatis = true;
+                return;
+            }
+        }
+        lastExam = exam;
+        i++;
+    }
+    if(unsatis == false){
+       let av = (sumGrade / numExam).toFixed(2);
+       console.log(`Average score: ${av}`);
+       console.log(`Number of problems: ${numExam}`);
+       console.log(`Last problem: ${lastExam}`);
+    }
+}
