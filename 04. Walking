@@ -1,0 +1,25 @@
+function demo(input){
+    let steps = 0;
+    let sumSteps = 0;
+    let i = 0;
+    let command = "";
+    while((command = input[i]) != "Going home"){
+        steps = Number(command);
+        sumSteps += steps;
+        if(sumSteps >= 10000){
+            console.log(`Goal reached! Good job!`);
+            console.log(`${sumSteps - 10000} steps over the goal!`);
+            return;
+        }
+        i++;
+    }
+    i++;
+    sumSteps += Number(input[i]);
+    if(sumSteps >= 10000){
+        console.log(`Goal reached! Good job!`);
+        console.log(`${sumSteps - 10000} steps over the goal!`);
+    }
+    else{
+        console.log(`${10000 - sumSteps} more steps to reach goal.`);
+    }
+}
