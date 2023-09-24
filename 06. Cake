@@ -1,0 +1,26 @@
+function demo(input){
+    let a = Number(input[0]);
+    let b = Number(input[1]);
+    let allPieces = a * b;
+    let pieces = 0;
+    let i = 2;
+    while(true){
+        pieces = Number(input[i]);
+        allPieces -= pieces;
+        if(allPieces < 0){
+            console.log(`No more cake left! You need ${Math.abs(allPieces)} pieces more.`);
+            break;
+        }
+        i++;
+        if(input[i] == "STOP"){
+            if(allPieces >= 0){
+                console.log(`${allPieces} pieces are left.`); 
+                break;
+            }
+            else{
+                console.log(`No more cake left! You need ${Math.abs(allPieces)} pieces more.`);
+                break;
+            }
+        }
+    }
+}
